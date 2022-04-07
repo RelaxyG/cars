@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReviewsController < ApplicationController
   before_action :find_car
   def new
@@ -7,8 +9,11 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.car = @car
-    @review.save
-    redirect_to car_path(@car)
+    if @review.save
+      redirect_to car_path(@car)
+    else
+      render :new
+    end
   end
 
   private

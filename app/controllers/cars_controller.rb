@@ -7,6 +7,7 @@ class CarsController < ApplicationController
   def index
     @cars = Car.all
   end
+
   # GET /cars/1
   def show; end
 
@@ -17,8 +18,6 @@ class CarsController < ApplicationController
   def cheap
     @cheap_cars = Car.where('price < ?', 5)
   end
-
-
 
   # GET /cars/new
   def new
@@ -42,6 +41,7 @@ class CarsController < ApplicationController
   def tech_lead
     @tech_lead = @car.tech_lead
   end
+
   # PATCH/PUT /cars/1
   def update
     if @car.update(car_params)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,24 +12,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_07_175725) do
-
-  create_table "cars", force: :cascade do |t|
-    t.string "name"
-    t.string "company"
-    t.integer "price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "tech_lead"
+ActiveRecord::Schema.define(version: 20_220_407_175_725) do
+  create_table 'cars', force: :cascade do |t|
+    t.string 'name'
+    t.string 'company'
+    t.integer 'price'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'tech_lead'
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.text "content"
-    t.integer "car_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["car_id"], name: "index_reviews_on_car_id"
+  create_table 'reviews', force: :cascade do |t|
+    t.text 'content'
+    t.integer 'car_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['car_id'], name: 'index_reviews_on_car_id'
   end
 
-  add_foreign_key "reviews", "cars"
+  add_foreign_key 'reviews', 'cars'
 end
