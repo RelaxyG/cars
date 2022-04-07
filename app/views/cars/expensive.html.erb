@@ -1,0 +1,6 @@
+<h1>Expensive cars</h1>
+<%@expensive_cars.each do |expensive_car|%>
+<h2><%=expensive_car.name%></h2>
+<h3><%=expensive_car.company%></h3>
+<p><%=1000000*expensive_car.price%>$</p>
+<%end%>

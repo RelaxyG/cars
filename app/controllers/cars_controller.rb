@@ -11,13 +11,13 @@ class CarsController < ApplicationController
   # GET /cars/1
   def show; end
 
-  # def expensive
-  #   @cars = Car.where(price: 5)
-  # end
+  def expensive
+    @expensive_cars = Car.where(price: 5)
+  end
 
-  # def cheap
-  #   @cars = Car.where(price: 2)
-  # end
+  def cheap
+    @cheap_cars = Car.where('price < ?', 5)
+  end
 
   # GET /cars/new
   def new

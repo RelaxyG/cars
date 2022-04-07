@@ -1,0 +1,7 @@
+<h1>Cheaper cars</h1>
+
+<% @cheap_cars.each do |cheap_car|%>
+  <h2> <%=cheap_car.name%></h2>
+  <h3><%=cheap_car.company%></h3>
+  <p><%=100000*cheap_car.price%>$</p>
+<%end%>
