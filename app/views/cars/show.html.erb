@@ -18,6 +18,13 @@
   <strong>Price:</strong>
   <%= @car.price %>
 </p>
+<p>
+  <strong>Review:</strong>
+  <% @car.reviews.each do |r| %>
+    <%=r.content%>
+  <%end%>
+</p>
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', cars_path %>
+<%= link_to 'Leave a review', new_car_review_path(@car) %>
