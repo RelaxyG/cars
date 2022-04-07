@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :edit, :update, :destroy]
+  before_action :set_car, only: %i[show edit update destroy]
 
   # GET /cars
   def index
@@ -7,8 +9,15 @@ class CarsController < ApplicationController
   end
 
   # GET /cars/1
-  def show
-  end
+  def show; end
+
+  # def expensive
+  #   @cars = Car.where(price: 5)
+  # end
+
+  # def cheap
+  #   @cars = Car.where(price: 2)
+  # end
 
   # GET /cars/new
   def new
@@ -16,8 +25,7 @@ class CarsController < ApplicationController
   end
 
   # GET /cars/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /cars
   def create
@@ -46,13 +54,14 @@ class CarsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_car
-      @car = Car.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def car_params
-      params.require(:car).permit(:name, :company, :price)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_car
+    @car = Car.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def car_params
+    params.require(:car).permit(:name, :company, :price)
+  end
 end
