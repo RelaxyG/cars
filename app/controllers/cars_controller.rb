@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 class CarsController < ApplicationController
-  before_action :set_car, only: %i[show edit update destroy]
+  before_action :set_car, only: %i[show edit update destroy tech_lead]
 
   # GET /cars
   def index
     @cars = Car.all
   end
-
   # GET /cars/1
   def show; end
 
@@ -18,6 +17,8 @@ class CarsController < ApplicationController
   def cheap
     @cheap_cars = Car.where('price < ?', 5)
   end
+
+
 
   # GET /cars/new
   def new
@@ -38,6 +39,9 @@ class CarsController < ApplicationController
     end
   end
 
+  def tech_lead
+    @tech_lead = @car.tech_lead
+  end
   # PATCH/PUT /cars/1
   def update
     if @car.update(car_params)

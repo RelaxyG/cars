@@ -12,6 +12,7 @@ Car.destroy_all
   Car.create(
     name: %w[Jojo Coco Yoyo Ohoh].sample,
     company: %w[Tesla BMW Chevrolet Mercedes].sample,
-    price: rand(1..5)
+    price: rand(1..5),
+    tech_lead: Faker::Name.name
   )
 end
