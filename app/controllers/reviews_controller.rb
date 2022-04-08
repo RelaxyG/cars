@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
-  before_action :find_car
+  before_action :find_car, except: [:destroy]
   def new
     @review = Review.new
   end
@@ -14,6 +14,13 @@ class ReviewsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to car_path(@review.car)
+
   end
 
   private

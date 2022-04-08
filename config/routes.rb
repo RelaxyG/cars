@@ -10,8 +10,9 @@ Rails.application.routes.draw do
     member do
       get :tech_lead
     end
-
     resources :reviews, only: %i[new create]
   end
+
+  resources :reviews, only: [:destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
